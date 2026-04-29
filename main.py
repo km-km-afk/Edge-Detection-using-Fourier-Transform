@@ -129,7 +129,6 @@ def plot_full_pipeline(img, fshift, mag, filters, results):
     fig = plt.figure(figsize=(18, 10))
     fig.patch.set_facecolor('#0f0f0f')
 
-    # Better layout: 2 rows only
     gs = gridspec.GridSpec(2, 5, figure=fig,
                            hspace=0.35, wspace=0.25)
 
@@ -143,7 +142,6 @@ def plot_full_pipeline(img, fshift, mag, filters, results):
         a.axis('off')
         return a
 
-    # --- Precompute (avoid repeated work) ---
     ideal_edge  = norm(results['ideal'])
     gauss_edge  = norm(results['gaussian'])
     butter_edge = norm(results['butter'])
@@ -152,21 +150,18 @@ def plot_full_pipeline(img, fshift, mag, filters, results):
     gauss_spec  = np.log1p(np.abs(fshift * filters['gaussian']))
     butter_spec = np.log1p(np.abs(fshift * filters['butter']))
 
-    # --- Row 1: Input + Filters ---
     ax(0, 0, "Original Image", img, cmap_img)
     ax(0, 1, "FFT Magnitude", np.log1p(mag), 'inferno')
     ax(0, 2, "Ideal HPF Mask", filters['ideal'], 'Blues')
     ax(0, 3, "Gaussian HPF Mask", filters['gaussian'], 'Blues')
     ax(0, 4, "Butterworth HPF Mask", filters['butter'], 'Blues')
 
-    # --- Row 2: Results ---
     ax(1, 0, "Ideal HPF Output", ideal_edge, cmap_edge)
     ax(1, 1, "Gaussian HPF Output", gauss_edge, cmap_edge)
     ax(1, 2, "Butterworth HPF Output", butter_edge, cmap_edge)
     ax(1, 3, "Ideal Filtered Spectrum", ideal_spec, 'inferno')
     ax(1, 4, "Gaussian Filtered Spectrum", gauss_spec, 'inferno')
 
-    # --- Better annotation (clean + relevant) ---
     fig.text(0.72, 0.02,
              f"Cutoff D₀ = {FILTER_RADIUS}px   |   σ = {GAUSS_SIGMA}px   |   n = {BUTTER_ORDER}",
              color='#cccccc', fontsize=10, ha='center')
@@ -182,8 +177,6 @@ def plot_full_pipeline(img, fshift, mag, filters, results):
 
     print(f"[SAVED] {out}")
     plt.show()
-
-
 
 
 def save_results(img, results, filters):
