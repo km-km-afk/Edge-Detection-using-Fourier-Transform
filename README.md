@@ -1,4 +1,4 @@
-# Fourier-Based Edge Detection
+# Fourier-Based Edge Detection by Krisha Mehta
 
 This project demonstrates **High-Pass Filtering (HPF)** in the frequency domain using the Fast Fourier Transform (FFT). By suppressing low-frequency components (smooth regions) and preserving high-frequency components (rapid intensity changes), we can effectively extract edges from an image.
 
