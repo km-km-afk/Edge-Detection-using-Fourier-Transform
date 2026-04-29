@@ -42,6 +42,8 @@ The script generates a synthetic test image (if no input is provided) containing
 
 ## 📊 Results & Visualization
 
+<img width="1986" height="1249" alt="ex" src="https://github.com/user-attachments/assets/c9dbbf1d-5e45-422a-bba4-cea884af83d4" />
+
 The output includes a comprehensive pipeline visualization:
 * **Top Row**: The original image, the magnitude spectrum, and the 2D filter masks.
 * **Bottom Row**: The resulting spatial edges and the filtered frequency spectra.
