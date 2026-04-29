@@ -214,7 +214,7 @@ def print_metrics(results: dict):
 
 
 def main():
-    img = load_or_create_image(path=r"C:\Users\Nikhi\Downloads\f.png")
+    img = load_or_create_image("image.jpg")
 
     rows, cols = img.shape
     fshift, mag = compute_fft(img)
